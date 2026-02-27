@@ -7,47 +7,47 @@ commands:
   dynmap:
     description: Controls Dynmap.
     usage: |
-           /<command> hide/show - toggles hiding the player from the map.
+      /<command> hide - hides the player from the map.
+      /<command> hide TheDude - hides the player 'TheDude' from the map.
+      /<command> show - shows the player from the map.
+      /<command> show TheDude - shows the player 'TheDude' from the map.
+      /<command> render - Renders the tile at your location.
+      /<command> fullrender - Render all maps for entire world from your location.
+      /<command> fullrender world - Render all maps for entire world 'world'.
+      /<command> fullrender world:mapname - Render map 'mapname' of world 'world'.
+      /<command> radiusrender ## - Render at least ## block radius from your location on all maps.
+      /<command> radiusrender ## mapname - Render at least ## block radius from your location on map 'mapname'
+      /<command> cancelrender - Cancels any active renders on current world
+      /<command> cancelrender world - Cancels any active renders of world 'world'
+      /<command> stats - Show render statistics.
+      /<command> stats world - Show render statistics for maps on world 'world'.
+      /<command> resetstats - Reset render statistics.
+      /<command> resetstats world - Reset render statistics for maps on world 'world'.
   dmarker:
     description: Manipulate map markers
     usage: |
-           /dynmap hide TheDude - hides the player 'TheDude' from the map.
-           /dynmap show - shows the player from the map.
-           /dynmap show TheDude - shows the player 'TheDude' from the map.
-           /dynmap render - Renders the tile at your location.
-           /dynmap fullrender - Render all maps for entire world from your location.
-           /dynmap fullrender world - Render all maps for entire world 'world'.
-           /dynmap fullrender world:mapname - Render map 'mapname' of world 'world'.
-           /dynmap radiusrender ## - Render at least ## block radius from your location on all maps.
-           /dynmap radiusrender ## mapname - Render at least ## block radius from your location on map 'mapname'
-           /dynmap cancelrender - Cancels any active renders on current world
-           /dynmap cancelrender world - Cancels any active renders of world 'world'
-           /dynmap stats - Show render statistics.
-           /dynmap stats world - Show render statistics for maps on world 'world'.
-           /dynmap resetstats - Reset render statistics.
-           /dynmap resetstats world - Reset render statistics for maps on world 'world'.
-           /<command> add <label> - add new marker with given label at current location (use double-quotes if spaces needed)
-           /<command> add id:<id> <label> - add new marker with given ID at current location (use double-quotes if spaces needed)
-           /<command> movehere <label> - move marker with given label to current location
-           /<command> movehere id:<id> - move marker with given ID to current location
-           /<command> update <label> icon:<icon> newlabel:<newlabel>- update marker with given ID with new label and/or icon
-           /<command> delete <label> - delete marker with given label
-           /<command> delete id:<id> - delete marker with given ID
-           /<command> list - list details of all markers
-           /<command> icons - list details of all icons
-           /<command> addset <label> - add marker set with given label (ID=label)
-           /<command> addset id:<id> <label> - add marker set with given ID and label
-           /<command> updateset id:<id> newlabel:<label> - update marker set with given ID
-           /<command> updateset <label> newlabel:<label> - update marker set with given label
-           /<command> deleteset <label> - delete marker set with given label
-           /<command> deleteset id:<id> - delete marker set with given ID
-           /<command> listsets - list all marker sets
-           /<command> addicon id:<id> <label> file:"filename" - install new icon
-           /<command> updateicon id:<id> newlabel:<label> file:"filename" - update existing icon
-           /<command> updateicon <label> newlabel:<label> file:"filename" - update existing icon
-           /<command> deleteicon id:<id> - remove icon 
-           /<command> deleteicon <label> - remove icon 
-           
+      /<command> add <label> - add new marker with given label at current location (use double-quotes if spaces needed)
+      /<command> add id:<id> <label> - add new marker with given ID at current location (use double-quotes if spaces needed)
+      /<command> movehere <label> - move marker with given label to current location
+      /<command> movehere id:<id> - move marker with given ID to current location
+      /<command> update <label> icon:<icon> newlabel:<newlabel>- update marker with given ID with new label and/or icon
+      /<command> delete <label> - delete marker with given label
+      /<command> delete id:<id> - delete marker with given ID
+      /<command> list - list details of all markers
+      /<command> icons - list details of all icons
+      /<command> addset <label> - add marker set with given label (ID=label)
+      /<command> addset id:<id> <label> - add marker set with given ID and label
+      /<command> updateset id:<id> newlabel:<label> - update marker set with given ID
+      /<command> updateset <label> newlabel:<label> - update marker set with given label
+      /<command> deleteset <label> - delete marker set with given label
+      /<command> deleteset id:<id> - delete marker set with given ID
+      /<command> listsets - list all marker sets
+      /<command> addicon id:<id> <label> file:"filename" - install new icon
+      /<command> updateicon id:<id> newlabel:<label> file:"filename" - update existing icon
+      /<command> updateicon <label> newlabel:<label> file:"filename" - update existing icon
+      /<command> deleteicon id:<id> - remove icon 
+      /<command> deleteicon <label> - remove icon 
+
 permissions:
   dynmap.*:
     description: Gives access to all dynmap functions
@@ -80,7 +80,7 @@ permissions:
       dynmap.marker.deleteicon: true
   dynmap.render:
     description: Allows /dynmap render command
-    default: false
+    default: true
   dynmap.show.self:
     description: Allows /dynmap show (on self)
     default: true
@@ -125,10 +125,10 @@ permissions:
     default: op
   dynmap.marker.list:
     description: Allows /dmarker list
-    default: false
+    default: true
   dynmap.marker.icons:
     description: Allows /dmarker icons
-    default: false
+    default: true
   dynmap.marker.sign:
     description: Allows creation of markers using signs
     default: op
@@ -143,7 +143,7 @@ permissions:
     default: op
   dynmap.marker.listsets:
     description: Allows /dmarker listsets
-    default: false
+    default: true
   dynmap.marker.addicon:
     description: Allows /dmarker addicon
     default: op
@@ -153,4 +153,3 @@ permissions:
   dynmap.marker.deleteicon:
     description: Allows /dmarker deleteicon
     default: op
-            
